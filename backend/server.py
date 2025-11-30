@@ -1,3 +1,4 @@
+import uvicorn
 from fastapi import FastAPI, APIRouter, HTTPException, Depends, Request, Header
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from dotenv import load_dotenv
@@ -567,8 +568,15 @@ app.include_router(api_router)
 
 app.add_middleware(
     CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "http://localhost:8000",
+        "http://127.0.0.1:8000",
+        "http://localhost:5000",
+        "http://127.0.0.1:5000",
+    ],
     allow_credentials=True,
-    allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','),
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -595,4 +603,24 @@ async def lifespan(app: FastAPI):
         await pool.close()
     logger.info("Database connection closed")
 
+
 app = FastAPI(lifespan=lifespan)
+def root():
+    print("✅ [ROOT] Health check")
+    return {
+        "message": "✅ River Garden API running with PostgreSQL",
+        "version": "1.0",
+        "auth": "JWT Bearer Token"
+    }
+
+
+if __name__ == "__main__":
+    print("=" * 60)
+    print("🚀 Starting FastAPI Server on port 5000...")
+    print("=" * 60)
+    uvicorn.run(
+        "main:app",
+        host="127.0.0.1",
+        port=5000,
+        reload=True
+    )
