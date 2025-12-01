@@ -27,10 +27,8 @@ ACCESS_TOKEN_EXPIRE_MINUTES = 60 * 24 * 7  # 7 days
 
 # Security
 security = HTTPBearer()
-
-# Create the main app
-app = FastAPI()
 api_router = APIRouter(prefix="/api")
+
 
 # Stripe Configuration
 STRIPE_API_KEY = os.environ.get('STRIPE_API_KEY', 'sk_test_emergent')
@@ -562,30 +560,6 @@ async def update_order_status(order_id: str, order_status: str, user: dict = Dep
             order_status, order_id
         )
         return {"message": "Order status updated"}
-
-# Include router
-app.include_router(api_router)
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-        "http://localhost:8000",
-        "http://127.0.0.1:8000",
-        "http://localhost:5000",
-        "http://127.0.0.1:5000",
-    ],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 
@@ -605,10 +579,30 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
+
+# Include router
+app.include_router(api_router)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+       ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
 def root():
     print("✅ [ROOT] Health check")
     return {
-        "message": "✅ River Garden API running with PostgreSQL",
+        "message": " API running with PostgreSQL",
         "version": "1.0",
         "auth": "JWT Bearer Token"
     }
@@ -616,11 +610,11 @@ def root():
 
 if __name__ == "__main__":
     print("=" * 60)
-    print("🚀 Starting FastAPI Server on port 5000...")
+    print("🚀 Starting FastAPI Server on port 8000...")
     print("=" * 60)
     uvicorn.run(
-        "main:app",
+        "server:app",
         host="127.0.0.1",
-        port=5000,
+        port=8000,
         reload=True
     )
