@@ -6,7 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 import { LayoutDashboard, LogOut, Package } from "lucide-react";
 import axios from "axios";
 import { toast } from "sonner";
-
+import Logo from "../assets/shawarmore-logo.jpeg";
 const AdminOrders = () => {
   const navigate = useNavigate();
   const { logout, token } = useContext(AuthContext);
@@ -82,10 +82,10 @@ const AdminOrders = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-3 cursor-pointer" onClick={() => navigate("/admin")}>
-              <div className="text-5xl">🌯</div>
+             <img src={Logo} alt="Shawarmore Logo" className="w-12 h-12 object-contain"/>
               <div>
                 <h1 className="text-3xl font-bold text-orange-500" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  SHAWARMORE
+                  Dubai Shawarmore
                 </h1>
                 <p className="text-xs text-orange-300 tracking-widest">ALL ORDERS</p>
               </div>

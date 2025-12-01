@@ -10,6 +10,8 @@ import { ShoppingCart, User, LogOut, LayoutDashboard } from "lucide-react";
 import axios from "axios";
 import { API } from "../App";
 import { toast } from "sonner";
+import Logo from "../assets/shawarmore-logo.jpeg";
+
 
 const Homepage = () => {
   const navigate = useNavigate();
@@ -58,10 +60,10 @@ const Homepage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-3 cursor-pointer" onClick={() => navigate("/")}>
-              <div className="text-5xl">🌯</div>
+             <img src={Logo} alt="Shawarmore Logo" className="w-12 h-12 object-contain"/>
               <div>
                 <h1 className="text-3xl font-bold text-orange-500" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  SHAWARMORE
+                  Dubai Shawarmore
                 </h1>
                 <p className="text-xs text-orange-300 tracking-widest">PREMIUM FLAVOUR EVERY WRAP</p>
               </div>
@@ -190,8 +192,8 @@ const Homepage = () => {
 
               <div className="flex items-center gap-8 pt-4">
                 <div>
-                  <p className="text-orange-500 text-3xl font-bold">$15.00</p>
-                  <p className="text-green-300 text-sm line-through">$20.00</p>
+                  <p className="text-orange-500 text-3xl font-bold">£15.00</p>
+                  <p className="text-green-300 text-sm line-through">£20.00</p>
                 </div>
               </div>
             </div>
@@ -217,10 +219,10 @@ const Homepage = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { name: "Chicken Shawarma", price: "$14.00", img: "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=400" },
-              { name: "Beef Shawarma", price: "$16.00", img: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400" },
-              { name: "Lamb Shawarma", price: "$18.00", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400" },
-              { name: "Veggie Wrap", price: "$12.00", img: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=400" }
+              { name: "Chicken Shawarma", price: "£7.00", img: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400" },
+              { name: "Beef Shawarma", price: "£10.00", img: "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=400" },
+              { name: "Lamb Samosa ", price: "£5.00", img: "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400" },
+              { name: "Chicken Wings", price: "£9.99", img: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=400" }
             ].map((item, idx) => (
               <div
                 key={idx}
@@ -244,107 +246,115 @@ const Homepage = () => {
 
       {/* Auth Modal */}
       <Dialog open={showAuth} onOpenChange={setShowAuth}>
-        <DialogContent className="bg-[#1a2e1a] border-green-700 text-white" data-testid="auth-modal">
+        <DialogContent
+  className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+             bg-white text-black border-green-700 rounded-lg shadow-xl
+             w-[90%] max-w-md p-6"
+>
           <DialogHeader>
-            <DialogTitle className="text-2xl text-orange-500">Welcome to SHAWARMORE</DialogTitle>
+            <DialogTitle className="text-2xl font-semibold text-orange-600">
+              Welcome to SHAWARMORE
+            </DialogTitle>
           </DialogHeader>
 
-          <Tabs defaultValue="login" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 bg-green-900/30">
-              <TabsTrigger value="login" data-testid="login-tab">Login</TabsTrigger>
-              <TabsTrigger value="register" data-testid="register-tab">Register</TabsTrigger>
+          <Tabs defaultValue="login" className="w-full mt-3">
+            <TabsList className="grid w-full grid-cols-2 bg-gray-100 rounded-md">
+              <TabsTrigger value="login">Login</TabsTrigger>
+              <TabsTrigger value="register">Register</TabsTrigger>
             </TabsList>
 
+            {/* LOGIN TAB */}
             <TabsContent value="login">
-              <form onSubmit={handleLogin} className="space-y-4">
+              <form onSubmit={handleLogin} className="space-y-4 mt-4">
                 <div>
-                  <Label htmlFor="login-email" className="text-green-100">Email</Label>
+                  <Label htmlFor="login-email" className="text-gray-800">Email</Label>
                   <Input
                     id="login-email"
                     type="email"
                     value={loginData.email}
                     onChange={(e) => setLoginData({ ...loginData, email: e.target.value })}
-                    className="bg-green-900/20 border-green-700 text-white"
+                    className="bg-gray-100 border-gray-300 text-black"
                     required
-                    data-testid="login-email-input"
                   />
                 </div>
+
                 <div>
-                  <Label htmlFor="login-password" className="text-green-100">Password</Label>
+                  <Label htmlFor="login-password" className="text-gray-800">Password</Label>
                   <Input
                     id="login-password"
                     type="password"
                     value={loginData.password}
                     onChange={(e) => setLoginData({ ...loginData, password: e.target.value })}
-                    className="bg-green-900/20 border-green-700 text-white"
+                    className="bg-gray-100 border-gray-300 text-black"
                     required
-                    data-testid="login-password-input"
                   />
                 </div>
-                <Button type="submit" className="w-full bg-orange-500 hover:bg-orange-600" data-testid="login-submit-btn">
+
+                <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white">
                   Login
                 </Button>
               </form>
             </TabsContent>
 
+            {/* REGISTER TAB */}
             <TabsContent value="register">
-              <form onSubmit={handleRegister} className="space-y-4">
+              <form onSubmit={handleRegister} className="space-y-4 mt-4">
                 <div>
-                  <Label htmlFor="register-name" className="text-green-100">Full Name</Label>
+                  <Label htmlFor="register-name" className="text-gray-800">Full Name</Label>
                   <Input
                     id="register-name"
                     value={registerData.full_name}
                     onChange={(e) => setRegisterData({ ...registerData, full_name: e.target.value })}
-                    className="bg-green-900/20 border-green-700 text-white"
+                    className="bg-gray-100 border-gray-300 text-black"
                     required
-                    data-testid="register-name-input"
                   />
                 </div>
+
                 <div>
-                  <Label htmlFor="register-email" className="text-green-100">Email</Label>
+                  <Label htmlFor="register-email" className="text-gray-800">Email</Label>
                   <Input
                     id="register-email"
                     type="email"
                     value={registerData.email}
                     onChange={(e) => setRegisterData({ ...registerData, email: e.target.value })}
-                    className="bg-green-900/20 border-green-700 text-white"
+                    className="bg-gray-100 border-gray-300 text-black"
                     required
-                    data-testid="register-email-input"
                   />
                 </div>
+
                 <div>
-                  <Label htmlFor="register-phone" className="text-green-100">Phone</Label>
+                  <Label htmlFor="register-phone" className="text-gray-800">Phone</Label>
                   <Input
                     id="register-phone"
                     value={registerData.phone}
                     onChange={(e) => setRegisterData({ ...registerData, phone: e.target.value })}
-                    className="bg-green-900/20 border-green-700 text-white"
-                    data-testid="register-phone-input"
+                    className="bg-gray-100 border-gray-300 text-black"
                   />
                 </div>
+
                 <div>
-                  <Label htmlFor="register-address" className="text-green-100">Address</Label>
+                  <Label htmlFor="register-address" className="text-gray-800">Address</Label>
                   <Input
                     id="register-address"
                     value={registerData.address}
                     onChange={(e) => setRegisterData({ ...registerData, address: e.target.value })}
-                    className="bg-green-900/20 border-green-700 text-white"
-                    data-testid="register-address-input"
+                    className="bg-gray-100 border-gray-300 text-black"
                   />
                 </div>
+
                 <div>
-                  <Label htmlFor="register-password" className="text-green-100">Password</Label>
+                  <Label htmlFor="register-password" className="text-gray-800">Password</Label>
                   <Input
                     id="register-password"
                     type="password"
                     value={registerData.password}
                     onChange={(e) => setRegisterData({ ...registerData, password: e.target.value })}
-                    className="bg-green-900/20 border-green-700 text-white"
+                    className="bg-gray-100 border-gray-300 text-black"
                     required
-                    data-testid="register-password-input"
                   />
                 </div>
-                <Button type="submit" className="w-full bg-orange-500 hover:bg-orange-600" data-testid="register-submit-btn">
+
+                <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white">
                   Register
                 </Button>
               </form>

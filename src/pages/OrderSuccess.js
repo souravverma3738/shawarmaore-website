@@ -4,7 +4,7 @@ import { AuthContext, API } from "../App";
 import { Button } from "../components/button";
 import { CheckCircle, Loader2 } from "lucide-react";
 import axios from "axios";
-
+import Logo from "../assets/shawarmore-logo.jpeg";
 const OrderSuccess = () => {
   const navigate = useNavigate();
   const { clearCart, token } = useContext(AuthContext);

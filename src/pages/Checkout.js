@@ -8,7 +8,7 @@ import { RadioGroup, RadioGroupItem } from "../components/radio-group";
 import { ShoppingCart } from "lucide-react";
 import axios from "axios";
 import { toast } from "sonner";
-
+import Logo from "../assets/shawarmore-logo.jpeg";
 const Checkout = () => {
   const navigate = useNavigate();
   const { user, cart, clearCart, token } = useContext(AuthContext);

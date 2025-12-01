@@ -8,7 +8,7 @@ import { ShoppingCart, User, LogOut, Plus, LayoutDashboard, Search, UserCircle }
 import axios from "axios";
 import { API } from "../App";
 import { toast } from "sonner";
-
+import Logo from "../assets/shawarmore-logo.jpeg";
 const Menu = () => {
   const navigate = useNavigate();
   const { user, cart, addToCart, logout } = useContext(AuthContext);
@@ -80,10 +80,10 @@ const Menu = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-3 cursor-pointer" onClick={() => navigate("/")}>
-              <div className="text-5xl">🌯</div>
+             <img src={Logo} alt="Shawarmore Logo" className="w-12 h-12 object-contain"/>
               <div>
                 <h1 className="text-3xl font-bold text-orange-500" style={{ fontFamily: "'Bebas Neue', sans-serif" }}>
-                  SHAWARMORE
+                  Dubai Shawarmore
                 </h1>
                 <p className="text-xs text-orange-300 tracking-widest">PREMIUM FLAVOUR EVERY WRAP</p>
               </div>
