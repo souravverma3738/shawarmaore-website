@@ -117,7 +117,7 @@ const Menu = () => {
                       <DropdownMenuTrigger asChild>
                         <Button
                           variant="ghost"
-                          className="text-green-100 hover:text-orange-400 hover:bg-green-900/30"
+                          className="text-black-100 hover:text-orange-400 hover:bg-green-900/30"
                           data-testid="user-profile-menu"
                         >
                           <UserCircle className="w-5 h-5 mr-2" />
@@ -127,7 +127,7 @@ const Menu = () => {
                       <DropdownMenuContent className="bg-[#1a2e1a] border-green-700">
                         <DropdownMenuItem
                           onClick={() => navigate("/profile")}
-                          className="text-green-100 hover:bg-green-900/30 cursor-pointer"
+                          className="text-black-100 hover:bg-green-900/30 cursor-pointer"
                           data-testid="profile-menu-item"
                         >
                           <UserCircle className="w-4 h-4 mr-2" />
@@ -135,7 +135,7 @@ const Menu = () => {
                         </DropdownMenuItem>
                         <DropdownMenuItem
                           onClick={() => navigate("/my-orders")}
-                          className="text-green-100 hover:bg-green-900/30 cursor-pointer"
+                          className="text-black-100 hover:bg-green-900/30 cursor-pointer"
                           data-testid="orders-menu-item"
                         >
                           <ShoppingCart className="w-4 h-4 mr-2" />
@@ -244,7 +244,7 @@ const Menu = () => {
                       ? "bg-orange-500 hover:bg-orange-600 text-white"
                       : "bg-green-900/30 hover:bg-green-900/50 text-green-100 border border-green-700"
                   }`}
-                  data-testid={`category-${category.id}-btn`}
+                  data-testid={`category-£{category.id}-btn`}
                 >
                   {category.name}
                 </Button>
@@ -265,7 +265,7 @@ const Menu = () => {
                 <div
                   key={product.id}
                   className="bg-green-900/20 backdrop-blur-md border border-green-700/30 rounded-2xl overflow-hidden hover:border-orange-500/50 transition-all hover:scale-105 group"
-                  data-testid={`product-card-${product.id}`}
+                  data-testid={`product-card-£{product.id}`}
                 >
                   <div className="relative h-48 overflow-hidden">
                     <img
@@ -278,11 +278,11 @@ const Menu = () => {
                     <h3 className="text-white font-semibold text-lg">{product.name}</h3>
                     <p className="text-green-300 text-sm line-clamp-2">{product.description}</p>
                     <div className="flex justify-between items-center pt-2">
-                      <span className="text-orange-400 font-bold text-xl">${product.price.toFixed(2)}</span>
+                      <span className="text-orange-400 font-bold text-xl">£{product.price.toFixed(2)}</span>
                       <Button
                         onClick={() => handleAddToCart(product)}
                         className="bg-orange-500 hover:bg-orange-600 text-white rounded-full w-10 h-10 p-0"
-                        data-testid={`add-to-cart-${product.id}`}
+                        data-testid={`add-to-cart-£{product.id}`}
                       >
                         <Plus className="w-5 h-5" />
                       </Button>

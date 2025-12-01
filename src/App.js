@@ -15,7 +15,7 @@ import AdminOrders from "./pages/AdminOrders";
 import AdminSales from "./pages/AdminSales";
 import { Toaster } from "./components/sonner";
 
-const BACKEND_URL = "http://127.0.0.1:5000";
+const BACKEND_URL = "http://127.0.0.1:8000";
 export const API = `${BACKEND_URL}/api`;
 
 // Auth Context

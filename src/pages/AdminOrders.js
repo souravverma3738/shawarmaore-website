@@ -136,7 +136,7 @@ const AdminOrders = () => {
                 <div
                   key={order.id}
                   className="bg-green-900/20 backdrop-blur-md border border-green-700/30 rounded-2xl p-6"
-                  data-testid={`order-card-${order.id}`}
+                  data-testid={`order-card-£{order.id}`}
                 >
                   <div className="grid md:grid-cols-2 gap-6 mb-6">
                     <div>
@@ -184,18 +184,18 @@ const AdminOrders = () => {
                     <h4 className="text-green-100 font-semibold mb-3">Order Items:</h4>
                     <div className="space-y-2 mb-4">
                       {order.items.map((item) => (
-                        <div key={item.id} className="flex justify-between text-green-200" data-testid={`order-item-${item.id}`}>
+                        <div key={item.id} className="flex justify-between text-green-200" data-testid={`order-item-£{item.id}`}>
                           <span>
                             {item.product_name} x {item.quantity}
                           </span>
-                          <span>${(item.price * item.quantity).toFixed(2)}</span>
+                          <span>£{(item.price * item.quantity).toFixed(2)}</span>
                         </div>
                       ))}
                     </div>
                     <div className="flex justify-between items-center border-t border-green-700/30 pt-4">
                       <span className="text-green-100 text-lg font-semibold">Total Amount:</span>
-                      <span className="text-orange-400 font-bold text-2xl" data-testid={`order-total-${order.id}`}>
-                        ${order.total_amount.toFixed(2)}
+                      <span className="text-orange-400 font-bold text-2xl" data-testid={`order-total-£{order.id}`}>
+                        £{order.total_amount.toFixed(2)}
                       </span>
                     </div>
                   </div>

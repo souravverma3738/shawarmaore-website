@@ -219,7 +219,7 @@ const AdminProducts = () => {
                 <div
                   key={product.id}
                   className="bg-green-900/20 backdrop-blur-md border border-green-700/30 rounded-2xl overflow-hidden"
-                  data-testid={`product-card-${product.id}`}
+                  data-testid={`product-card-£{product.id}`}
                 >
                   <div className="relative h-48">
                     <img
@@ -228,7 +228,7 @@ const AdminProducts = () => {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute top-4 right-4">
-                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                      <span className={`px-3 py-1 rounded-full text-xs font-semibold £{
                         product.is_available ? "bg-green-500/80 text-white" : "bg-red-500/80 text-white"
                       }`}>
                         {product.is_available ? "Available" : "Unavailable"}
@@ -240,12 +240,12 @@ const AdminProducts = () => {
                       <h3 className="text-white font-semibold text-lg mb-1">{product.name}</h3>
                       <p className="text-green-300 text-sm line-clamp-2">{product.description}</p>
                     </div>
-                    <p className="text-orange-400 font-bold text-xl">${product.price.toFixed(2)}</p>
+                    <p className="text-orange-400 font-bold text-xl">£{product.price.toFixed(2)}</p>
                     <div className="flex gap-2">
                       <Button
                         onClick={() => startEditProduct(product)}
                         className="flex-1 bg-blue-500 hover:bg-blue-600 text-white"
-                        data-testid={`edit-product-${product.id}`}
+                        data-testid={`edit-product-£{product.id}`}
                       >
                         <Edit className="w-4 h-4 mr-2" />
                         Edit
@@ -253,7 +253,7 @@ const AdminProducts = () => {
                       <Button
                         onClick={() => handleDeleteProduct(product.id)}
                         className="flex-1 bg-red-500 hover:bg-red-600 text-white"
-                        data-testid={`delete-product-${product.id}`}
+                        data-testid={`delete-product-£{product.id}`}
                       >
                         <Trash2 className="w-4 h-4 mr-2" />
                         Delete
@@ -275,7 +275,7 @@ const AdminProducts = () => {
           setProductForm({ name: "", description: "", price: "", image_url: "", category_id: "", is_available: true });
         }
       }}>
-        <DialogContent className="bg-[#1a2e1a] border-green-700 text-white max-w-2xl" data-testid="product-form-modal">
+        <DialogContent className="bg-[#0d1b0d] border-green-700 text-white max-w-2xl !bg-opacity-100" data-testid="product-form-modal">
           <DialogHeader>
             <DialogTitle className="text-2xl text-orange-500">
               {editingProduct ? "Edit Product" : "Add New Product"}
@@ -305,7 +305,7 @@ const AdminProducts = () => {
               />
             </div>
             <div>
-              <Label htmlFor="product-price" className="text-green-100">Price ($)</Label>
+              <Label htmlFor="product-price" className="text-green-100">Price (£)</Label>
               <Input
                 id="product-price"
                 type="number"
@@ -336,7 +336,7 @@ const AdminProducts = () => {
                 </SelectTrigger>
                 <SelectContent className="bg-[#1a2e1a] border-green-700">
                   {categories.map((cat) => (
-                    <SelectItem key={cat.id} value={cat.id} className="text-white">
+                    <SelectItem key={cat.id} value={cat.id} className="text-black">
                       {cat.name}
                     </SelectItem>
                   ))}
@@ -361,7 +361,7 @@ const AdminProducts = () => {
 
       {/* Add Category Modal */}
       <Dialog open={showAddCategory} onOpenChange={setShowAddCategory}>
-        <DialogContent className="bg-[#1a2e1a] border-green-700 text-white" data-testid="category-form-modal">
+        <DialogContent className="bg-[#0d1b0d] border-green-700 text-white" data-testid="category-form-modal">
           <DialogHeader>
             <DialogTitle className="text-2xl text-orange-500">Add New Category</DialogTitle>
           </DialogHeader>

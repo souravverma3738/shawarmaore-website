@@ -122,7 +122,7 @@ const Cart = () => {
                 <div
                   key={item.id}
                   className="bg-green-900/20 backdrop-blur-md border border-green-700/30 rounded-2xl p-6 flex items-center gap-6"
-                  data-testid={`cart-item-${item.id}`}
+                  data-testid={`cart-item-£{item.id}`}
                 >
                   <img
                     src={item.image_url || "https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=200"}
@@ -132,14 +132,14 @@ const Cart = () => {
                   <div className="flex-1">
                     <h3 className="text-white font-semibold text-xl mb-1">{item.name}</h3>
                     <p className="text-green-300 text-sm">{item.description}</p>
-                    <p className="text-orange-400 font-bold text-lg mt-2">${item.price.toFixed(2)}</p>
+                    <p className="text-orange-400 font-bold text-lg mt-2">£{item.price.toFixed(2)}</p>
                   </div>
                   <div className="flex items-center gap-4">
                     <div className="flex items-center gap-2 bg-green-900/30 rounded-full p-1">
                       <Button
                         onClick={() => updateCartQuantity(item.id, item.quantity - 1)}
                         className="bg-green-800 hover:bg-green-700 text-white rounded-full w-8 h-8 p-0"
-                        data-testid={`decrease-qty-${item.id}`}
+                        data-testid={`decrease-qty-£{item.id}`}
                       >
                         <Minus className="w-4 h-4" />
                       </Button>
@@ -147,7 +147,7 @@ const Cart = () => {
                       <Button
                         onClick={() => updateCartQuantity(item.id, item.quantity + 1)}
                         className="bg-green-800 hover:bg-green-700 text-white rounded-full w-8 h-8 p-0"
-                        data-testid={`increase-qty-${item.id}`}
+                        data-testid={`increase-qty-£{item.id}`}
                       >
                         <Plus className="w-4 h-4" />
                       </Button>
@@ -159,7 +159,7 @@ const Cart = () => {
                       }}
                       variant="ghost"
                       className="text-red-400 hover:text-red-300 hover:bg-red-900/20"
-                      data-testid={`remove-item-${item.id}`}
+                      data-testid={`remove-item-£{item.id}`}
                     >
                       <Trash2 className="w-5 h-5" />
                     </Button>
@@ -172,16 +172,16 @@ const Cart = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center text-green-200">
                     <span>Subtotal</span>
-                    <span data-testid="cart-subtotal">${total.toFixed(2)}</span>
+                    <span data-testid="cart-subtotal">£{total.toFixed(2)}</span>
                   </div>
                   <div className="flex justify-between items-center text-green-200">
                     <span>Delivery Fee</span>
-                    <span>$3.00</span>
+                    <span>£3.00</span>
                   </div>
                   <div className="border-t border-green-700/30 pt-4">
                     <div className="flex justify-between items-center text-white text-2xl font-bold">
                       <span>Total</span>
-                      <span className="text-orange-400" data-testid="cart-total">${(total + 3).toFixed(2)}</span>
+                      <span className="text-orange-400" data-testid="cart-total">£{(total + 3).toFixed(2)}</span>
                     </div>
                   </div>
                 </div>

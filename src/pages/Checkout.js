@@ -158,9 +158,9 @@ const Checkout = () => {
             
             <div className="space-y-3 mb-6">
               {cart.map((item) => (
-                <div key={item.id} className="flex justify-between text-green-200" data-testid={`summary-item-${item.id}`}>
+                <div key={item.id} className="flex justify-between text-green-200" data-testid={`summary-item-£{item.id}`}>
                   <span>{item.name} x {item.quantity}</span>
-                  <span>${(item.price * item.quantity).toFixed(2)}</span>
+                  <span>£{(item.price * item.quantity).toFixed(2)}</span>
                 </div>
               ))}
             </div>
@@ -168,15 +168,15 @@ const Checkout = () => {
             <div className="border-t border-green-700/30 pt-4 space-y-3">
               <div className="flex justify-between text-green-200">
                 <span>Subtotal</span>
-                <span data-testid="summary-subtotal">${total.toFixed(2)}</span>
+                <span data-testid="summary-subtotal">£{total.toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-green-200">
                 <span>Delivery Fee</span>
-                <span>${deliveryFee.toFixed(2)}</span>
+                <span>£{deliveryFee.toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-white text-2xl font-bold pt-4">
                 <span>Total</span>
-                <span className="text-orange-400" data-testid="summary-total">${grandTotal.toFixed(2)}</span>
+                <span className="text-orange-400" data-testid="summary-total">£{grandTotal.toFixed(2)}</span>
               </div>
             </div>
 

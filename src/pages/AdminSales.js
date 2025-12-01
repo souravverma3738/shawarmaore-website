@@ -175,10 +175,10 @@ const AdminSales = () => {
                 <SelectValue />
               </SelectTrigger>
               <SelectContent className="bg-[#1a2e1a] border-green-700">
-                <SelectItem value="today" className="text-white">Today</SelectItem>
-                <SelectItem value="week" className="text-white">This Week</SelectItem>
-                <SelectItem value="month" className="text-white">This Month</SelectItem>
-                <SelectItem value="all" className="text-white">All Time</SelectItem>
+                <SelectItem value="today" className="text-black">Today</SelectItem>
+                <SelectItem value="week" className="text-black">This Week</SelectItem>
+                <SelectItem value="month" className="text-black">This Month</SelectItem>
+                <SelectItem value="all" className="text-black">All Time</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -191,11 +191,11 @@ const AdminSales = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="bg-gradient-to-br from-green-900/30 to-emerald-900/20 backdrop-blur-md border border-green-700/30 rounded-2xl p-6" data-testid="metric-revenue">
                   <div className="flex items-center justify-between mb-4">
-                    <DollarSign className="w-12 h-12 text-green-400" />
+                    <span className="w-12 h-12 text-green-400 text-5xl">£</span>
                     <TrendingUp className="w-6 h-6 text-green-400" />
                   </div>
                   <h3 className="text-green-200 text-sm mb-2">Total Revenue</h3>
-                  <p className="text-white text-3xl font-bold">${analytics.totalRevenue.toFixed(2)}</p>
+                  <p className="text-white text-3xl font-bold">£{analytics.totalRevenue.toFixed(2)}</p>
                 </div>
 
                 <div className="bg-gradient-to-br from-blue-900/30 to-cyan-900/20 backdrop-blur-md border border-blue-700/30 rounded-2xl p-6" data-testid="metric-orders">
@@ -213,7 +213,7 @@ const AdminSales = () => {
                     <DollarSign className="w-6 h-6 text-orange-400" />
                   </div>
                   <h3 className="text-orange-200 text-sm mb-2">Avg Order Value</h3>
-                  <p className="text-white text-3xl font-bold">${analytics.avgOrderValue.toFixed(2)}</p>
+                  <p className="text-white text-3xl font-bold">£{analytics.avgOrderValue.toFixed(2)}</p>
                 </div>
 
                 <div className="bg-gradient-to-br from-purple-900/30 to-pink-900/20 backdrop-blur-md border border-purple-700/30 rounded-2xl p-6" data-testid="metric-payment">
@@ -269,7 +269,7 @@ const AdminSales = () => {
                           </div>
                         </div>
                         <div className="text-right">
-                          <p className="text-orange-400 font-bold text-xl">${product.revenue.toFixed(2)}</p>
+                          <p className="text-orange-400 font-bold text-xl">£{product.revenue.toFixed(2)}</p>
                           <p className="text-green-300 text-sm">Revenue</p>
                         </div>
                       </div>
@@ -292,7 +292,7 @@ const AdminSales = () => {
                           <p className="text-green-300 text-sm">{new Date(order.created_at).toLocaleString()}</p>
                         </div>
                         <div className="text-right">
-                          <p className="text-orange-400 font-bold text-lg">${order.total_amount.toFixed(2)}</p>
+                          <p className="text-orange-400 font-bold text-lg">£{order.total_amount.toFixed(2)}</p>
                           <p className="text-sm text-green-300 capitalize">{order.order_status}</p>
                         </div>
                       </div>
