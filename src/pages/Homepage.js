@@ -209,6 +209,64 @@ const Homepage = () => {
           </div>
         </div>
       </div>
+        {/* How to Order Section */}
+        <div className="py-20 bg-[#132515] text-center">
+          <div className="max-w-6xl mx-auto px-6">
+
+            {/* Headings */}
+            <h2 className="text-3xl sm:text-4xl font-bold mb-3 text-[#E2F7D4]" style={{ fontFamily: "'Playfair Display', serif" }}>
+              How to order
+            </h2>
+
+            <p className="text-4xl sm:text-5xl font-extrabold text-orange-500 mb-12">
+              It’s as easy as this.
+            </p>
+
+            {/* Steps */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+
+              {/* Step 1 */}
+              <div className="flex flex-col items-center">
+                <div className="text-orange-400 text-6xl mb-4">
+                  📍
+                </div>
+                <h3 className="font-bold text-lg mb-2 text-[#F5FCEB]">
+                  Tell us where you are
+                </h3>
+                <p className="text-[#A5C7A0] max-w-xs">
+                  We’ll show you stores and restaurants nearby you can order from.
+                </p>
+              </div>
+
+              {/* Step 2 */}
+              <div className="flex flex-col items-center">
+                <div className="text-orange-400 text-6xl mb-4">
+                  🍔
+                </div>
+                <h3 className="font-bold text-lg mb-2 text-[#F5FCEB]">
+                  Find what you want
+                </h3>
+                <p className="text-[#A5C7A0] max-w-xs">
+                  Search for items or dishes, businesses or cuisines.
+                </p>
+              </div>
+
+              {/* Step 3 */}
+              <div className="flex flex-col items-center">
+                <div className="text-orange-400 text-6xl mb-4">
+                  🕑
+                </div>
+                <h3 className="font-bold text-lg mb-2 text-[#F5FCEB]">
+                  Order for delivery or collection
+                </h3>
+                <p className="text-[#A5C7A0] max-w-xs">
+                  We’ll update you on your order’s progress.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
 
       {/* Featured Items */}
       <div className="py-20 px-4 bg-gradient-to-b from-transparent to-[#0f1a0f]">
@@ -243,6 +301,72 @@ const Homepage = () => {
           </div>
         </div>
       </div>
+      {/* Why Choose Us Section */}
+<div className="py-24 bg-[#132515] ">
+  <div className="max-w-7xl mx-auto px-6 text-center">
+
+    {/* Heading */}
+    <p className="text-green-300 tracking-wide text-sm mb-2 uppercase">
+      Dubai Shawarmore
+    </p>
+
+    <h2 className="text-4xl sm:text-5xl font-extrabold mb-14">
+      <span className="text-orange-500">Why</span>{" "}
+      <span className="text-white">Choose Us?</span>
+    </h2>
+
+    {/* 3 Cards */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+
+      {/* Card 1 */}
+      <div className="bg-[#132515] border border-green-800/40 rounded-3xl p-8 shadow-xl hover:shadow-orange-500/20 transition-all backdrop-blur-md hover:-translate-y-2">
+        <div className="w-16 h-16 mx-auto rounded-2xl bg-orange-500/20 flex items-center justify-center mb-6 shadow-lg">
+          <span className="text-orange-400 text-4xl">🎖️</span>
+        </div>
+
+        <h3 className="text-white font-bold text-xl mb-4">Loyalty Rewards</h3>
+
+        <ul className="text-green-200 text-sm space-y-2">
+          <li>• Earn points for every order</li>
+          <li>• Exclusive discounts & promos</li>
+          <li>• VIP member-only deals</li>
+        </ul>
+      </div>
+
+      {/* Card 2 */}
+      <div className="bg-[#132515] border border-green-800/40 rounded-3xl p-8 shadow-xl hover:shadow-orange-500/20 transition-all backdrop-blur-md hover:-translate-y-2">
+        <div className="w-16 h-16 mx-auto rounded-2xl bg-orange-500/20 flex items-center justify-center mb-6 shadow-lg">
+          <span className="text-orange-400 text-4xl">⭐</span>
+        </div>
+
+        <h3 className="text-white font-bold text-xl mb-4">Our Promise</h3>
+
+        <ul className="text-green-200 text-sm space-y-2">
+          <li>• Fresh ingredients every day</li>
+          <li>• Authentic Middle-Eastern flavour</li>
+          <li>• Fast & reliable delivery</li>
+        </ul>
+      </div>
+
+      {/* Card 3 */}
+      <div className="bg-[#132515] border border-green-800/40 rounded-3xl p-8 shadow-xl hover:shadow-orange-500/20 transition-all backdrop-blur-md hover:-translate-y-2">
+        <div className="w-16 h-16 mx-auto rounded-2xl bg-orange-500/20 flex items-center justify-center mb-6 shadow-lg">
+          <span className="text-orange-400 text-4xl">🚀</span>
+        </div>
+
+        <h3 className="text-white font-bold text-xl mb-4">Your Benefits</h3>
+
+        <ul className="text-green-200 text-sm space-y-2">
+          <li>• Super-fast delivery options</li>
+          <li>• Pay online or cash on delivery</li>
+          <li>• Order anytime on any device</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
       {/* Auth Modal */}
       <Dialog open={showAuth} onOpenChange={setShowAuth}>
@@ -362,6 +486,94 @@ const Homepage = () => {
           </Tabs>
         </DialogContent>
       </Dialog>
+      {/* Footer */}
+<footer className="bg-[#0b140b] border-t border-green-900/40 text-green-200 ">
+  <div className="max-w-7xl mx-auto px-6 py-14">
+
+    {/* Top: Logo + Social */}
+    <div className="flex flex-col items-center text-center mb-12">
+
+      <img
+        src={Logo}
+        alt="Shawarmore Logo"
+        className="w-16 h-16 object-contain mb-4"
+      />
+
+      <h2 className="text-2xl font-bold text-orange-500">
+        Dubai Shawarmore
+      </h2>
+      <p className="text-sm text-green-300 tracking-wide">
+        Premium Flavour Every Wrap
+      </p>
+
+      {/* Social Icons */}
+      <div className="flex gap-6 mt-6">
+        <a href="#" className="text-green-200 hover:text-orange-500 text-2xl">
+          <i className="fab fa-facebook"></i>
+        </a>
+        <a href="#" className="text-green-200 hover:text-orange-500 text-2xl">
+          <i className="fab fa-instagram"></i>
+        </a>
+        <a href="#" className="text-green-200 hover:text-orange-500 text-2xl">
+          <i className="fab fa-tiktok"></i>
+        </a>
+        <a href="#" className="text-green-200 hover:text-orange-500 text-2xl">
+          <i className="fab fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+
+    {/* Middle Section: Links */}
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center sm:text-left">
+
+      {/* Column 1 */}
+      <div>
+        <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
+        <ul className="space-y-2 text-green-300">
+          <li><a href="/menu" className="hover:text-orange-400">Menu</a></li>
+          <li><a href="/my-orders" className="hover:text-orange-400">My Orders</a></li>
+          <li><a href="/cart" className="hover:text-orange-400">Cart</a></li>
+          <li><a href="/contact" className="hover:text-orange-400">Contact</a></li>
+        </ul>
+      </div>
+
+      {/* Column 2 */}
+      <div>
+        <h3 className="text-lg font-semibold text-white mb-4">Customer Service</h3>
+        <ul className="space-y-2 text-green-300">
+          <li><a href="#" className="hover:text-orange-400">FAQs</a></li>
+          <li><a href="#" className="hover:text-orange-400">Delivery Info</a></li>
+          <li><a href="#" className="hover:text-orange-400">Refund Policy</a></li>
+          <li><a href="#" className="hover:text-orange-400">Terms & Conditions</a></li>
+        </ul>
+      </div>
+
+      {/* Column 3 */}
+      <div>
+        <h3 className="text-lg font-semibold text-white mb-4">Contact Us</h3>
+        <ul className="space-y-2 text-green-300">
+          <li>📞 07400 123456</li>
+          <li>📍 Addiscombe Road, Croydon</li>
+          <li>🕒 Mon–Sun: 11AM – 11PM</li>
+          <li><a href="mailto:info@shawarmore.co.uk" className="hover:text-orange-400">
+              info@shawarmore.co.uk
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    {/* Bottom Copyright */}
+    <div className="text-center mt-14 border-t border-green-800/40 pt-6">
+      <p className="text-sm text-green-400">
+        © {new Date().getFullYear()} Dubai Shawarmore — All Rights Reserved.
+      </p>
+    </div>
+
+  </div>
+</footer>
+
     </div>
   );
 };
