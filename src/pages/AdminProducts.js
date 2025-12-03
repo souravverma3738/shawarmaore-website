@@ -275,7 +275,7 @@ const AdminProducts = () => {
           setProductForm({ name: "", description: "", price: "", image_url: "", category_id: "", is_available: true });
         }
       }}>
-        <DialogContent className="bg-[#0d1b0d] border-green-700 text-white max-w-2xl !bg-opacity-100" data-testid="product-form-modal">
+        <DialogContent className="bg-black border-green-700 text-white max-w-2xl !bg-opacity-100" data-testid="product-form-modal">
           <DialogHeader>
             <DialogTitle className="text-2xl text-orange-500">
               {editingProduct ? "Edit Product" : "Add New Product"}
@@ -361,7 +361,7 @@ const AdminProducts = () => {
 
       {/* Add Category Modal */}
       <Dialog open={showAddCategory} onOpenChange={setShowAddCategory}>
-        <DialogContent className="bg-[#0d1b0d] border-green-700 text-white" data-testid="category-form-modal">
+        <DialogContent className="bg-black border-green-700 text-white" data-testid="category-form-modal">
           <DialogHeader>
             <DialogTitle className="text-2xl text-orange-500">Add New Category</DialogTitle>
           </DialogHeader>

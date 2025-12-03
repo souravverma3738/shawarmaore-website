@@ -15,7 +15,7 @@ import AdminOrders from "./pages/AdminOrders";
 import AdminSales from "./pages/AdminSales";
 import { Toaster } from "./components/sonner";
 
-const BACKEND_URL = "http://127.0.0.1:8000";
+const BACKEND_URL = "https://shawarma-backend-6l9v.onrender.com";
 export const API = `${BACKEND_URL}/api`;
 
 // Auth Context
